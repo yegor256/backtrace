@@ -35,6 +35,6 @@ class BacktraceTest < Minitest::Test
   rescue StandardError => e
     text = Backtrace.new(e).to_s
     assert(text.include?("RuntimeError: Just a test\n"), text)
-    assert(text.include?('backtrace/test/test_backtrace.rb'), text)
+    assert(text.include?('test/test_backtrace.rb'), text)
   end
 end
