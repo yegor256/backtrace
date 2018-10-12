@@ -1,0 +1,6 @@
+AllCops:
+  DisplayCopNames: true
+  TargetRubyVersion: 2.3.3
+
+Layout/MultilineMethodCallIndentation:
+  Enabled: false
