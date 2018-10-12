@@ -3,7 +3,7 @@
 
 [![Build Status](https://travis-ci.org/yegor256/backtrace.svg)](https://travis-ci.org/yegor256/backtrace)
 [![Gem Version](https://badge.fury.io/rb/backtrace.svg)](http://badge.fury.io/rb/backtrace)
-[![Maintainability](https://api.codeclimate.com/v1/badges/349b8c31884d3b34d926/maintainability)](https://codeclimate.com/github/yegor256/backtrace/maintainability)
+[![Maintainability](https://api.codeclimate.com/v1/badges/0296baf81e86b90fba70/maintainability)](https://codeclimate.com/github/yegor256/backtrace/maintainability)
 
 A Ruby backtrace nicely printed.
 
