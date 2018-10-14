@@ -42,4 +42,16 @@ class Backtrace
         .reverse.join("\n\t")
     ].join
   end
+
+  def self.exec(swallow: false, log: nil)
+    yield
+  rescue StandardError => e
+    trace = Backtrace.new(e).to_s
+    if log.nil?
+      puts trace
+    else
+      log.error(trace)
+    end
+    raise e unless swallow
+  end
 end

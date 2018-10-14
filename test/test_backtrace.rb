@@ -37,4 +37,19 @@ class BacktraceTest < Minitest::Test
     assert(text.include?("RuntimeError: Just a test\n"), text)
     assert(text.include?('test/test_backtrace.rb'), text)
   end
+
+  def test_runs_a_block
+    log = FakeLog.new
+    Backtrace.exec(swallow: true, log: log) do
+      raise 'It is intended'
+    end
+    assert(log.sent.include?('intended'))
+  end
+
+  class FakeLog
+    attr_reader :sent
+    def error(msg)
+      @sent = msg
+    end
+  end
 end

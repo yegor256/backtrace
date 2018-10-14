@@ -24,6 +24,27 @@ rescue StandardError => e
 end
 ```
 
+A more compact version would use a block:
+
+```ruby
+require 'backtrace'
+Backtrace.exec(swallow: true) do
+  # do something dangerous
+end
+```
+
+You can also provide a logging facility, to log the backtrace:
+
+```ruby
+require 'backtrace'
+log = Log.new # it must implement method error(msg)
+Backtrace.exec(swallow: true, log: log) do
+  # do something dangerous
+end
+```
+
+That's it.
+
 # License
 
 (The MIT License)
