@@ -27,9 +27,9 @@
 # Copyright:: Copyright (c) 2018 Yegor Bugayenko
 # License:: MIT
 class Backtrace
-  def initialize(exp, stop: '')
+  def initialize(exp, mine: '')
     @exp = exp
-    @stop = stop
+    @mine = mine
   end
 
   def to_s
@@ -38,7 +38,7 @@ class Backtrace
       ': ',
       @exp.message,
       "\n\t",
-      @exp.backtrace.reverse.drop_while { |t| !t.include?(@stop) }
+      @exp.backtrace.reverse.drop_while { |t| !t.include?(@mine) }
         .reverse.join("\n\t")
     ].join
   end
@@ -47,7 +47,7 @@ class Backtrace
     yield
   rescue StandardError => e
     trace = Backtrace.new(e).to_s
-    if log.nil?
+    if log.nil? || !log.respond_to?(:error)
       puts trace
     else
       log.error(trace)

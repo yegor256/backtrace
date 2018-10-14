@@ -46,6 +46,18 @@ class BacktraceTest < Minitest::Test
     assert(log.sent.include?('intended'))
   end
 
+  def test_runs_a_block_to_console
+    Backtrace.exec(swallow: true) do
+      raise 'It is intended'
+    end
+  end
+
+  def test_runs_a_block_to_broken_log
+    Backtrace.exec(swallow: true, log: Object.new) do
+      raise 'It is intended'
+    end
+  end
+
   class FakeLog
     attr_reader :sent
     def error(msg)
