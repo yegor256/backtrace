@@ -47,7 +47,7 @@ class BacktraceTest < Minitest::Test
   end
 
   def test_runs_a_block_to_console
-    Backtrace.exec(swallow: true) do
+    Backtrace.exec(swallow: true, mine: 'backtrace') do
       raise 'It is intended'
     end
   end

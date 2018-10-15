@@ -29,7 +29,7 @@
 class Backtrace
   def initialize(exp, mine: '')
     @exp = exp
-    @mine = mine
+    @mine = (mine.is_a?(Regexp) ? mine : Regexp.new(Regexp.quote(mine)))
   end
 
   def to_s
@@ -38,15 +38,16 @@ class Backtrace
       ': ',
       @exp.message,
       "\n\t",
-      @exp.backtrace.reverse.drop_while { |t| !t.include?(@mine) }
+      @exp.backtrace.reverse
+        .drop_while { |t| @mine.match(t).nil? }
         .reverse.join("\n\t")
     ].join
   end
 
-  def self.exec(swallow: false, log: nil)
+  def self.exec(swallow: false, log: nil, mine: '')
     yield
   rescue StandardError => e
-    trace = Backtrace.new(e).to_s
+    trace = Backtrace.new(e, mine: mine).to_s
     if log.nil? || !log.respond_to?(:error)
       puts trace
     else

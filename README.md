@@ -43,6 +43,20 @@ Backtrace.exec(swallow: true, log: log) do
 end
 ```
 
+Sometimes you may need to hide unimportant lines of the backtrace,
+which are not related to your code base. You can use `mine` argument
+of the constructor, which is a regular expression or a string. When it's met
+in the backtrace, the printing will stop:
+
+```ruby
+require 'backtrace'
+begin
+  # do something dangerous
+rescue StandardError => e
+  puts Backtrace.new(e, mine: 'yegor')
+end
+```
+
 That's it.
 
 # License
