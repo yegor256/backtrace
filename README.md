@@ -24,6 +24,8 @@ rescue StandardError => e
 end
 ```
 
+![screenshot](https://raw.githubusercontent.com/yegor256/backtrace/master/screenshot.png)
+
 A more compact version would use a block:
 
 ```ruby
