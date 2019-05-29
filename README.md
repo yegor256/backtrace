@@ -1,5 +1,5 @@
 [![DevOps By Rultor.com](http://www.rultor.com/b/yegor256/backtrace)](http://www.rultor.com/p/yegor256/backtrace)
-[![We recommend RubyMine](http://www.elegantobjects.org/rubymine.svg)](https://www.jetbrains.com/ruby/)
+[![We recommend RubyMine](https://www.elegantobjects.org/rubymine.svg)](https://www.jetbrains.com/ruby/)
 
 [![Build Status](https://travis-ci.org/yegor256/backtrace.svg)](https://travis-ci.org/yegor256/backtrace)
 [![Gem Version](https://badge.fury.io/rb/backtrace.svg)](http://badge.fury.io/rb/backtrace)
