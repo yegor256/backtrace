@@ -1,3 +1,5 @@
+<img src="/logo.svg" width="64px" height="64px"/>
+
 [![DevOps By Rultor.com](http://www.rultor.com/b/yegor256/backtrace)](http://www.rultor.com/p/yegor256/backtrace)
 [![We recommend RubyMine](https://www.elegantobjects.org/rubymine.svg)](https://www.jetbrains.com/ruby/)
 
@@ -5,6 +7,9 @@
 [![Gem Version](https://badge.fury.io/rb/backtrace.svg)](http://badge.fury.io/rb/backtrace)
 [![Maintainability](https://api.codeclimate.com/v1/badges/0296baf81e86b90fba70/maintainability)](https://codeclimate.com/github/yegor256/backtrace/maintainability)
 [![Yard Docs](http://img.shields.io/badge/yard-docs-blue.svg)](http://rubydoc.info/github/yegor256/backtrace/master/frames)
+[![Hits-of-Code](https://hitsofcode.com/github/yegor256/backtrace)](https://hitsofcode.com/view/github/yegor256/backtrace)
+
+[![License](https://img.shields.io/badge/license-MIT-green.svg)](https://github.com/yegor256/backtrace/blob/master/LICENSE.txt)
 
 A Ruby backtrace nicely printed.
 
@@ -62,7 +67,7 @@ end
 
 That's it.
 
-# How to contribute
+## How to contribute
 
 Read [these guidelines](https://www.yegor256.com/2014/04/15/github-guidelines.html).
 Make sure you build is green before you contribute
@@ -71,31 +76,7 @@ your pull request. You will need to have [Ruby](https://www.ruby-lang.org/en/) 2
 
 ```
 $ bundle update
-$ rake
+$ bundle exec rake
 ```
 
 If it's clean and you don't see any error messages, submit your pull request.
-
-# License
-
-(The MIT License)
-
-Copyright (c) 2018 Yegor Bugayenko
-
-Permission is hereby granted, free of charge, to any person obtaining a copy
-of this software and associated documentation files (the 'Software'), to deal
-in the Software without restriction, including without limitation the rights
-to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
-copies of the Software, and to permit persons to whom the Software is
-furnished to do so, subject to the following conditions:
-
-The above copyright notice and this permission notice shall be included in all
-copies or substantial portions of the Software.
-
-THE SOFTWARE IS PROVIDED 'AS IS', WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
-IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
-FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
-AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
-LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
-OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
-SOFTWARE.

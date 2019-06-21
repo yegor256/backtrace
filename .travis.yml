@@ -1,6 +1,6 @@
 language: ruby
 rvm:
-  - 2.3.3
+  - 2.6.0
 branches:
   only:
     - master
@@ -8,5 +8,4 @@ install:
   - bundle install
 script:
   - set -e
-  - rake
-
+  - bundle exec rake
