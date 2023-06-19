@@ -30,7 +30,7 @@ Gem::Specification.new do |s|
   s.version = '0.0.0'
   s.license = 'MIT'
   s.summary = 'Backtrace printer'
-  s.description = 'Nicely prints Ruby backtrace'
+  s.description = 'Nicely prints Ruby backtrace to the console'
   s.authors = ['Yegor Bugayenko']
   s.email = 'yegor256@gmail.com'
   s.homepage = 'http://github.com/yegor256/backtrace'
