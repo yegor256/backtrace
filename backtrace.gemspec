@@ -2,7 +2,7 @@
 
 # (The MIT License)
 #
-# Copyright (c) 2018 Yegor Bugayenko
+# Copyright (c) 2018-2023 Yegor Bugayenko
 #
 # Permission is hereby granted, free of charge, to any person obtaining a copy
 # of this software and associated documentation files (the 'Software'), to deal
@@ -24,11 +24,7 @@
 
 require 'English'
 Gem::Specification.new do |s|
-  s.specification_version = 2 if s.respond_to? :specification_version=
-  if s.respond_to? :required_rubygems_version=
-    s.required_rubygems_version = Gem::Requirement.new('>= 0')
-  end
-  s.rubygems_version = '2.3.3'
+  s.required_rubygems_version = Gem::Requirement.new('>= 0') if s.respond_to? :required_rubygems_version=
   s.required_ruby_version = '>=2.3'
   s.name = 'backtrace'
   s.version = '0.0.0'
@@ -39,12 +35,7 @@ Gem::Specification.new do |s|
   s.email = 'yegor256@gmail.com'
   s.homepage = 'http://github.com/yegor256/backtrace'
   s.files = `git ls-files`.split($RS)
-  s.test_files = s.files.grep(%r{^(test)/})
   s.rdoc_options = ['--charset=UTF-8']
   s.extra_rdoc_files = ['README.md']
-  s.add_development_dependency 'minitest', '~>5.11'
-  s.add_development_dependency 'rake', '~>12.3'
-  s.add_development_dependency 'rdoc', '~>4.2'
-  s.add_development_dependency 'rubocop', '0.58.1'
-  s.add_development_dependency 'rubocop-rspec', '1.27.0'
+  s.metadata['rubygems_mfa_required'] = 'true'
 end
