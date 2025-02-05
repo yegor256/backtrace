@@ -5,7 +5,7 @@ AllCops:
   NewCops: enable
 Layout/MultilineMethodCallIndentation:
   Enabled: false
-required:
+require:
   - rubocop-rake
   - rubocop-minitest
   - rubocop-performance
