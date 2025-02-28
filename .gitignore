@@ -1,5 +1,5 @@
 *.gem
-.bundle/
 .DS_Store
+.bundle/
 rdoc/
 vendor/
