@@ -1,12 +1,12 @@
 <img src="/logo.svg" width="64px" height="64px"/>
 
-[![DevOps By Rultor.com](http://www.rultor.com/b/yegor256/backtrace)](http://www.rultor.com/p/yegor256/backtrace)
+[![DevOps By Rultor.com](https://www.rultor.com/b/yegor256/backtrace)](https://www.rultor.com/p/yegor256/backtrace)
 [![We recommend RubyMine](https://www.elegantobjects.org/rubymine.svg)](https://www.jetbrains.com/ruby/)
 
 [![rake](https://github.com/yegor256/backtrace/actions/workflows/rake.yml/badge.svg)](https://github.com/yegor256/backtrace/actions/workflows/rake.yml)
-[![Gem Version](https://badge.fury.io/rb/backtrace.svg)](http://badge.fury.io/rb/backtrace)
+[![Gem Version](https://badge.fury.io/rb/backtrace.svg)](https://badge.fury.io/rb/backtrace)
 [![Maintainability](https://api.codeclimate.com/v1/badges/0296baf81e86b90fba70/maintainability)](https://codeclimate.com/github/yegor256/backtrace/maintainability)
-[![Yard Docs](http://img.shields.io/badge/yard-docs-blue.svg)](http://rubydoc.info/github/yegor256/backtrace/master/frames)
+[![Yard Docs](https://img.shields.io/badge/yard-docs-blue.svg)](https://rubydoc.info/github/yegor256/backtrace/master/frames)
 [![Hits-of-Code](https://hitsofcode.com/github/yegor256/backtrace)](https://hitsofcode.com/view/github/yegor256/backtrace)
 [![License](https://img.shields.io/badge/license-MIT-green.svg)](https://github.com/yegor256/backtrace/blob/master/LICENSE.txt)
 
