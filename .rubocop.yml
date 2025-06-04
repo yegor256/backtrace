@@ -10,6 +10,8 @@ Layout/MultilineMethodCallIndentation:
   Enabled: false
 Minitest/EmptyLineBeforeAssertionMethods:
   Enabled: false
+Metrics/MethodLength:
+  Max: 40
 plugins:
   - rubocop-rake
   - rubocop-minitest

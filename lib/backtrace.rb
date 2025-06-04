@@ -61,14 +61,16 @@ class Backtrace
   #     #     \t/path/to/file.rb:20:in `calculate'"
   #   end
   def to_s
+    bt = @exp.backtrace
+      &.reverse
+      &.drop_while { |t| @mine.match(t).nil? }
+      &.reverse
+      &.join("\n\t")
     [
       @exp.class.name,
       ': ',
       @exp.message,
-      "\n\t",
-      @exp.backtrace.reverse
-        .drop_while { |t| @mine.match(t).nil? }
-        .reverse.join("\n\t")
+      ("\n\t#{bt}" if bt)
     ].join
   end
 

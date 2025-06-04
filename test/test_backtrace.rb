@@ -19,6 +19,11 @@ class BacktraceTest < Minitest::Test
     assert_includes(text, 'test/test_backtrace.rb', text)
   end
 
+  def test_prints_synthetic_exception
+    text = Backtrace.new(StandardError.new('boom!')).to_s
+    assert_includes(text, 'StandardError: boom!', text)
+  end
+
   def test_runs_a_block
     log = FakeLog.new
     Backtrace.exec(swallow: true, log: log) do
