@@ -1,4 +1,4 @@
-<img src="/logo.svg" width="64px" height="64px"/>
+# Converts Ruby Backtrace to a String
 
 [![DevOps By Rultor.com](https://www.rultor.com/b/yegor256/backtrace)](https://www.rultor.com/p/yegor256/backtrace)
 [![We recommend RubyMine](https://www.elegantobjects.org/rubymine.svg)](https://www.jetbrains.com/ruby/)
@@ -15,10 +15,10 @@ A Ruby backtrace nicely printed.
 First, install it:
 
 ```bash
-$ gem install backtrace
+gem install backtrace
 ```
 
-Then, use it like this, to print a backtrace:
+Then, use it like this to print a backtrace:
 
 ```ruby
 require 'backtrace'
@@ -40,19 +40,19 @@ Backtrace.exec(swallow: true) do
 end
 ```
 
-You can also provide a logging facility, to log the backtrace:
+You can also provide a logging facility to log the backtrace:
 
 ```ruby
 require 'backtrace'
-log = Log.new # it must implement method error(msg)
+log = Log.new # it must implement the method error(msg)
 Backtrace.exec(swallow: true, log: log) do
   # do something dangerous
 end
 ```
 
-Sometimes you may need to hide unimportant lines of the backtrace,
-which are not related to your code base. You can use `mine` argument
-of the constructor, which is a regular expression or a string. When it's met
+Sometimes you may need to hide unimportant lines of the backtrace
+that are not related to your codebase. You can use the `mine` argument
+of the constructor, which is a regular expression or a string. When it's encountered
 in the backtrace, the printing will stop:
 
 ```ruby
@@ -68,14 +68,16 @@ That's it.
 
 ## How to contribute
 
-Read [these guidelines](https://www.yegor256.com/2014/04/15/github-guidelines.html).
+Read
+[these guidelines](https://www.yegor256.com/2014/04/15/github-guidelines.html).
 Make sure your build is green before you contribute
-your pull request. You will need to have [Ruby](https://www.ruby-lang.org/en/) 2.3+ and
+your pull request.
+You will need to have [Ruby](https://www.ruby-lang.org/en/) 2.3+ and
 [Bundler](https://bundler.io/) installed. Then:
 
-```
-$ bundle update
-$ bundle exec rake
+```bash
+bundle update
+bundle exec rake
 ```
 
 If it's clean and you don't see any error messages, submit your pull request.
