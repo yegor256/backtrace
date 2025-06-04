@@ -3,8 +3,8 @@
 # SPDX-FileCopyrightText: Copyright (c) 2018-2025 Yegor Bugayenko
 # SPDX-License-Identifier: MIT
 
-require 'minitest/autorun'
 require_relative '../lib/backtrace'
+require_relative 'test__helper'
 
 # Backtract test.
 # Author:: Yegor Bugayenko (yegor256@gmail.com)
