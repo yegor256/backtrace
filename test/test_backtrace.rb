@@ -15,8 +15,8 @@ class BacktraceTest < Minitest::Test
     raise 'Just a test'
   rescue StandardError => e
     text = Backtrace.new(e).to_s
-    assert(text.include?("RuntimeError: Just a test\n"), text)
-    assert(text.include?('test/test_backtrace.rb'), text)
+    assert_includes(text, "RuntimeError: Just a test\n", text)
+    assert_includes(text, 'test/test_backtrace.rb', text)
   end
 
   def test_runs_a_block
@@ -24,7 +24,7 @@ class BacktraceTest < Minitest::Test
     Backtrace.exec(swallow: true, log: log) do
       raise 'It is intended'
     end
-    assert(log.sent.include?('intended'))
+    assert_includes(log.sent, 'intended')
   end
 
   def test_runs_a_block_to_console
