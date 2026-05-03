@@ -6,7 +6,7 @@
 require_relative '../lib/backtrace'
 require_relative 'test__helper'
 
-# Backtract test.
+# Backtrace test.
 # Author:: Yegor Bugayenko (yegor256@gmail.com)
 # Copyright:: Copyright (c) 2018-2026 Yegor Bugayenko
 # License:: MIT
