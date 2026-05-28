@@ -12,7 +12,7 @@ require_relative 'test__helper'
 # License:: MIT
 class BacktraceTest < Minitest::Test
   def test_prints_exception
-    raise 'Just a test'
+    raise(RuntimeError, 'Just a test')
   rescue StandardError => e
     text = Backtrace.new(e).to_s
     assert_includes(text, "RuntimeError: Just a test\n", text)
@@ -27,20 +27,20 @@ class BacktraceTest < Minitest::Test
   def test_runs_a_block
     log = FakeLog.new
     Backtrace.exec(swallow: true, log: log) do
-      raise 'It is intended'
+      raise(RuntimeError, 'It is intended')
     end
     assert_includes(log.sent, 'intended')
   end
 
   def test_runs_a_block_to_console
     Backtrace.exec(swallow: true, mine: 'backtrace') do
-      raise 'It is intended'
+      raise(RuntimeError, 'It is intended')
     end
   end
 
   def test_runs_a_block_to_broken_log
     Backtrace.exec(swallow: true, log: Object.new) do
-      raise 'It is intended'
+      raise(RuntimeError, 'It is intended')
     end
   end
 

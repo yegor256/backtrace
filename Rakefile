@@ -3,11 +3,13 @@
 # SPDX-FileCopyrightText: Copyright (c) 2018-2026 Yegor Bugayenko
 # SPDX-License-Identifier: MIT
 
-require 'rubygems'
 require 'rake'
 require 'rake/clean'
+require 'rake/testtask'
+require 'rubocop/rake_task'
+require 'rubygems'
 
-CLEAN = FileList['coverage']
+CLEAN.include('coverage')
 
 def name
   @name ||= File.basename(Dir['*.gemspec'].first, '.*')
@@ -19,7 +21,6 @@ end
 
 task default: %i[clean test rubocop]
 
-require 'rake/testtask'
 desc 'Run all unit tests'
 Rake::TestTask.new(:test) do |test|
   test.libs << 'lib' << 'test'
@@ -27,7 +28,6 @@ Rake::TestTask.new(:test) do |test|
   test.verbose = false
 end
 
-require 'rubocop/rake_task'
 desc 'Run RuboCop on all directories'
 RuboCop::RakeTask.new(:rubocop) do |task|
   task.fail_on_error = true

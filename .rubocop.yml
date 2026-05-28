@@ -12,7 +12,13 @@ Minitest/EmptyLineBeforeAssertionMethods:
   Enabled: false
 Metrics/MethodLength:
   Max: 40
+Elegant/ClassInModule:
+  Exclude:
+    - 'lib/**/*'
+    - '**/test_*.rb'
+    - '**/*Test.rb'
 plugins:
   - rubocop-rake
   - rubocop-minitest
   - rubocop-performance
+  - rubocop-elegant

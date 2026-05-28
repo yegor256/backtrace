@@ -61,10 +61,7 @@ class Backtrace
   #     #     \t/path/to/file.rb:20:in `calculate'"
   #   end
   def to_s
-    bt = @exp.backtrace
-      &.reverse
-      &.drop_while { |t| @mine.match(t).nil? }
-      &.reverse
+    bt = @exp.backtrace&.reverse&.drop_while { |t| @mine.match(t).nil? }&.reverse
       &.join("\n\t")
     [
       @exp.class.name,
@@ -112,10 +109,10 @@ class Backtrace
   rescue StandardError => e
     trace = Backtrace.new(e, mine: mine).to_s
     if log.nil? || !log.respond_to?(:error)
-      puts trace
+      puts(trace)
     else
       log.error(trace)
     end
-    raise e unless swallow
+    raise(e) unless swallow
   end
 end
