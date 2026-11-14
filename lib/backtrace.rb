@@ -62,7 +62,8 @@ class Backtrace
   #   end
   def to_s
     bt = @exp.backtrace&.reverse&.drop_while { |t| @mine.match(t).nil? }&.reverse
-      &.join("\n\t")
+    bt = @exp.backtrace if bt && bt.empty?
+    bt = bt&.join("\n\t")
     [
       @exp.class.name,
       ': ',
