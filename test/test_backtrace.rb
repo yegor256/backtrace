@@ -24,6 +24,36 @@ class BacktraceTest < Minitest::Test
     assert_includes(text, 'StandardError: boom!', text)
   end
 
+  def test_preserves_frames_when_mine_does_not_match
+    error = RuntimeError.new('request failed')
+    frames = ['/vendor/http.rb:41', '/worker/queue.rb:9']
+    error.set_backtrace(frames)
+    ['/application', %r{/application}].each do |mine|
+      assert_equal("RuntimeError: request failed\n\t#{frames.join("\n\t")}", Backtrace.new(error, mine: mine).to_s)
+    end
+  end
+
+  def test_stops_at_last_matching_frame
+    error = RuntimeError.new('request failed')
+    error.set_backtrace(
+      ['/vendor/http.rb:41', '/application/inner.rb:5', '/application/outer.rb:9', '/worker/queue.rb:9']
+    )
+    ['/application', %r{/application}].each do |mine|
+      assert_equal(
+        "RuntimeError: request failed\n\t/vendor/http.rb:41\n\t/application/inner.rb:5\n\t/application/outer.rb:9",
+        Backtrace.new(error, mine: mine).to_s
+      )
+    end
+  end
+
+  def test_logs_frames_when_mine_does_not_match
+    log = FakeLog.new
+    error = RuntimeError.new('request failed')
+    error.set_backtrace(['/vendor/http.rb:41', '/worker/queue.rb:9'])
+    Backtrace.exec(swallow: true, log: log, mine: '/application') { raise(error) }
+    assert_equal("RuntimeError: request failed\n\t/vendor/http.rb:41\n\t/worker/queue.rb:9", log.sent)
+  end
+
   def test_runs_a_block
     log = FakeLog.new
     Backtrace.exec(swallow: true, log: log) do
