@@ -54,6 +54,17 @@ class BacktraceTest < Minitest::Test
     assert_equal("RuntimeError: request failed\n\t/vendor/http.rb:41\n\t/worker/queue.rb:9", log.sent)
   end
 
+  def test_accepts_nil_mine
+    log = FakeLog.new
+    error = RuntimeError.new('request failed')
+    error.set_backtrace(['/vendor/http.rb:41', '/worker/queue.rb:9'])
+    Backtrace.exec(swallow: true, log: log, mine: nil) { raise(error) }
+    assert_equal(
+      "RuntimeError: request failed\n\t/vendor/http.rb:41\n\t/worker/queue.rb:9",
+      log.sent
+    )
+  end
+
   def test_runs_a_block
     log = FakeLog.new
     Backtrace.exec(swallow: true, log: log) do
