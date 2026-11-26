@@ -65,7 +65,7 @@ class Backtrace
     bt = @exp.backtrace if bt && bt.empty?
     bt = bt&.join("\n\t")
     [
-      @exp.class.name,
+      @exp.class.name || @exp.class.to_s,
       ': ',
       @exp.message,
       ("\n\t#{bt}" if bt)
