@@ -40,7 +40,7 @@ class Backtrace
   #   Backtrace.new(exception, mine: /lib\/myapp/)
   def initialize(exp, mine: '')
     @exp = exp
-    @mine = (mine.is_a?(Regexp) ? mine : Regexp.new(Regexp.quote(mine)))
+    @mine = (mine.is_a?(Regexp) ? mine : Regexp.new(Regexp.quote(mine.to_s)))
   end
 
   # Converts the backtrace to a formatted string.
