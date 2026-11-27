@@ -24,6 +24,12 @@ class BacktraceTest < Minitest::Test
     assert_includes(text, 'StandardError: boom!', text)
   end
 
+  def test_prints_anonymous_exception_class
+    text = Backtrace.new(Class.new(StandardError).new('boom')).to_s
+    assert_match(/^#<Class:0x[0-9a-f]+>: boom/, text)
+    refute(text.start_with?(': '), text)
+  end
+
   def test_preserves_frames_when_mine_does_not_match
     error = RuntimeError.new('request failed')
     frames = ['/vendor/http.rb:41', '/worker/queue.rb:9']
