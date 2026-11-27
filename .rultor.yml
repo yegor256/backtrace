@@ -3,7 +3,7 @@
 ---
 # yamllint disable rule:line-length
 docker:
-  image: yegor256/ruby
+  image: yegor256/ruby:0.0.1@sha256:043f6d8209366ff97999529e1e35d6e76fe5bc855ac4370bdf59769c1a7a4470
 assets:
   rubygems.yml: yegor256/home#assets/rubygems.yml
 install: |-
